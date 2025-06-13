@@ -1,0 +1,22 @@
+.custom-input {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid gray;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+    color: gray;
+    background: transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+}
+
+.custom-input:focus {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.custom-input.required {
+    border-bottom: 2px solid red !important;
+    color: red !important;
+}

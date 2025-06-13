@@ -1,0 +1,171 @@
+.d-flex {
+  display: flex;
+}
+
+.sidebar-content {
+  background-color: #0d0e12;
+  color: white;
+  width: 260px;
+  min-height: 100vh;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  z-index: 200;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px 20px;
+}
+
+.sidebar-content img {
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatar-container button {
+  border: none;
+  background: none;
+  margin-top: 10px;
+  height: 25px;
+  font-size: 14px;
+  font-family: ChakraPetch-Regular;
+  font-weight: 600;
+  color: rgb(85, 84, 84);
+}
+
+.avatar-container h5 {
+  font-size: 16px;
+}
+
+.avatar-container p {
+  font-size: 14px;
+}
+
+.sidebar-content a {
+  color: rgb(226, 226, 226);
+  font-size: 16px;
+}
+
+.sidebar-content a span {
+  margin-right: 10px;
+}
+
+.sidebar-link {
+  padding: 20px 20px;
+  display: block;
+}
+
+.sidebar-item {
+  width: 100%;
+}
+
+.sidebar-item:hover {
+  background-color: #26272B;
+  border-radius: 6px;
+}
+
+.sidebar-item.active {
+  background-color: #26272B;
+  border-radius: 6px;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  padding: 10px 30px;
+}
+
+.navbar-content img {
+  border-radius: 6px;
+}
+
+.admin-main-content {
+  width: calc(100% - 270px);
+  overflow: auto;
+}
+
+.btn-admin-edit {
+  font-size: 20px;
+}
+
+.btn-admin-delete {
+  color: red;
+  font-size: 20px !important;
+}
+
+.btn-admin-delete:hover {
+  color: red !important;
+  font-weight: 800;
+}
+
+/* Hide the admin details by default */
+.admin-details {
+  display: none;
+  position: absolute;
+  top: 41px;
+  /* Adjust to position it below the image */
+  right: -3px;
+  /* Align to the left of the image */
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.admin-content {
+  padding: 30px;
+}
+
+.admin-footer-content {
+  padding: 18px 30px;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 240px);
+}
+
+/* Positioning the avatar-container relative */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Show the admin details when hovering over the avatar-img */
+.avatar-container:hover .admin-details {
+  display: block;
+}
+
+/* Optional: Style for the avatar image */
+.avatar-img {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.admin-navbar {
+  padding: 30px !important;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.btn-navbar-item {
+  color: rgba(0, 0, 0, 0.45) !important;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.profile-dropdown {
+  top: 10px !important;
+}
