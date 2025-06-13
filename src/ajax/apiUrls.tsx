@@ -1,5 +1,5 @@
 // export const BASE_URL = "http://localhost:8000/";   // For local development
-export const BASE_URL = "http://3.107.85.17:8000"; // Replace with your production URL
+export const BASE_URL = "http://3.107.85.17:8000/"; // Replace with your production URL
 
 //Admin Api No Token
 export const UrlAdminLogin = BASE_URL + "api/admin/signin";
