@@ -73,7 +73,17 @@ const AdminDocPage = ({ history }: any) => {
       title: 'Description',
       dataIndex: 'description',
       render: (text: any) => {
-        return <span>{text}</span>
+        return (
+          <div style={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            maxWidth: '200px',
+          }}
+          >
+            {text}  
+          </div>
+        );
       },
     },
     {

@@ -5,6 +5,7 @@ import { Col, Modal, Row } from "antd";
 import { apiPost } from "ajax/apiServices";
 import Toast from "components/Toast/Toast";
 import { UrlAdminAddOrEditLab } from "ajax/apiUrls";
+import CustomTextArea from "components/CustomTextArea/CustomTextArea";
 
 interface EditLabModalProps {
   show: boolean;
@@ -169,7 +170,7 @@ const EditLabModal: React.FC<EditLabModalProps> = ({
             >
               description
             </div>
-            <CustomInput
+            <CustomTextArea
               focusedField={focusedField}
               setFocusedField={setFocusedField}
               formData={formData["description"]}

@@ -5,6 +5,7 @@ import { Col, Modal, Row } from "antd";
 import { apiPost } from "ajax/apiServices";
 import Toast from "components/Toast/Toast";
 import { UrlAdminAddOrEditDoc } from "ajax/apiUrls";
+import CustomTextArea from "components/CustomTextArea/CustomTextArea";
 
 interface EditDocModalProps {
   show: boolean;
@@ -169,7 +170,7 @@ const EditDocModal: React.FC<EditDocModalProps> = ({
             >
               description
             </div>
-            <CustomInput
+            <CustomTextArea
               focusedField={focusedField}
               setFocusedField={setFocusedField}
               formData={formData["description"]}

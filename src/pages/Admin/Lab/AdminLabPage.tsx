@@ -72,8 +72,15 @@ const AdminLabPage = ({ history }: any) => {
     {
       title: 'Description',
       dataIndex: 'description',
-      render: (text: any) => {
-        return <span>{text}</span>
+        render: (text: any) => {
+          return    <div style={{
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          maxWidth: '400px' // Adjust width based on your layout
+        }}>
+          {text}
+        </div>
       },
     },
     {

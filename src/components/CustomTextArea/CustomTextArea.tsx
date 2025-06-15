@@ -20,7 +20,7 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = (props: CustomTextAreaProp
             placeholder={placeholder}
             onFocus={() => setFocusedField(name)}
             onBlur={() => setFocusedField(null)}
-            rows={5}
+            rows={10}
             name={name}
             value={value}
             onChange={handleChange}

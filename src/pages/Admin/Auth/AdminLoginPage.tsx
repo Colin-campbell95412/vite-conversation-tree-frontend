@@ -115,7 +115,7 @@ function AdminLoginPage() {
               </Button>
             </Form.Item>
             <Form.Item style={{ marginTop: "-10px" }}>
-              <Button
+              {/* <Button
                 loading={loading}
                 type="primary"
                 className="login-form-button"
@@ -124,7 +124,7 @@ function AdminLoginPage() {
                 }
               >
                 Sign up
-              </Button>
+              </Button> */}
             </Form.Item>
           </Form>
         </Col>
