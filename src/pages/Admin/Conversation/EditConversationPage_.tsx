@@ -50,7 +50,7 @@ const EditConversationPage: React.FC = () => {
     const newStep = conversationTree.length + 1;
     setConversationTree([...conversationTree, {
       step: newStep,
-      questions: [{ question: '', response: '', next_step: 0 }]
+      questions: [{ question: '', response: '', next_step: 1 }]
     }]);
   };
 
@@ -72,7 +72,7 @@ const EditConversationPage: React.FC = () => {
   const addQuestion = (step: number) => {
     setConversationTree(prev => prev.map(set => {
       if (set.step === step) {
-        return { ...set, questions: [...set.questions, { question: '', response: '', next_step: 0 }] };
+        return { ...set, questions: [...set.questions, { question: '', response: '', next_step: 1 }] };
       }
       return set;
     }));
@@ -130,7 +130,6 @@ const EditConversationPage: React.FC = () => {
     try {
       apiPost(UrlAdminEditConversation, payload)
         .then((res: any) => {
-          console.log("res", res);
           if (res.status === "success") {
             Toast(res.message, "success");
           } else {
@@ -183,7 +182,7 @@ const EditConversationPage: React.FC = () => {
           style={{ marginBottom: 20 }}
         />
 
-        <Button type="dashed" onClick={addQuestionSet} style={{ marginBottom: 20 }}>Add a step</Button>
+        <Button type="dashed" onClick={addQuestionSet} style={{ marginBottom: 20 }}>Add a write step</Button>
 
         {conversationTree.map(set => (
           <div key={set.step} style={{ border: '1px solid #ddd', borderRadius: 4, padding: 20, marginBottom: 20, background: '#fafafa' }}>
@@ -222,9 +221,8 @@ const EditConversationPage: React.FC = () => {
                   style={{ width: '100%' }}
                 >
                   {availableSteps.filter(s => s !== set.step).map(s => (
-                  <Option key={s} value={s}>Go to Step {s}</Option>
-                ))}
-                <Option key="end" value={0}>End</Option>
+                    <Option key={s} value={s}>Go to Step {s}</Option>
+                  ))}
                 </Select>
               </div>
             ))}
