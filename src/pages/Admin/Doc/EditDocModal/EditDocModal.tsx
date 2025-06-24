@@ -82,7 +82,7 @@ const EditDocModal: React.FC<EditDocModalProps> = ({
   const handleSubmit = async () => {
     // if (!validateForm()) return;
     // setLoading(true);
-    console.log("Ok button clicked: formData:", formData);
+    // console.log("Ok button clicked: formData:", formData);
     const formPayload = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       if (value !== null) {
@@ -94,7 +94,7 @@ const EditDocModal: React.FC<EditDocModalProps> = ({
 
     apiPost(UrlAdminAddOrEditDoc, formPayload)
       .then((res: any) => {
-        console.log("Response from server:", res);
+        // console.log("Response from server:", res);
         if (res.status === "success") {
           Toast(res.message, "success");
           setModalShow(false);

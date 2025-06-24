@@ -12,8 +12,8 @@ const AdminMessagePage = ({ history }: any) => {
   const navigate = useNavigate();
   const currentUserId = localStorage.getItem('currentUserId') || '';
   const currentUserRole = localStorage.getItem('currentUserRole') || '';
-  console.log("Current User ID:", currentUserId);
-  console.log("Current User Role:", currentUserRole);
+  // console.log("Current User ID:", currentUserId);
+  // console.log("Current User Role:", currentUserRole);
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -123,7 +123,7 @@ const AdminMessagePage = ({ history }: any) => {
   const fetchData = async () => {
     apiGet(UrlAdminMessages)
       .then((res: any) => {
-        console.log("Fetched Messages:", res);
+        // console.log("Fetched Messages:", res);
         const fetchedData = res
           .map((item: any) => ({
             ...item,

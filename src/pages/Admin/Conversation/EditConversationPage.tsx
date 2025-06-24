@@ -130,7 +130,7 @@ const EditConversationPage: React.FC = () => {
     try {
       apiPost(UrlAdminEditConversation, payload)
         .then((res: any) => {
-          console.log("res", res);
+          // console.log("res", res);
           if (res.status === "success") {
             Toast(res.message, "success");
           } else {

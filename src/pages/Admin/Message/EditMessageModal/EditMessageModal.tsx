@@ -52,10 +52,10 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
     if (show) {
       apiGet(UrlAdminUsers)
         .then((res: any) => {
-          console.log("Current User ID:", currentUserId);
+          // console.log("Current User ID:", currentUserId);
           // if (res.status === "success") {
           setUserList(Array.isArray(res) ? res.filter((user: any) => user.id !== currentUserId) : []);        
-          console.log("Filtered User List:", userList);
+          // console.log("Filtered User List:", userList);
           // }
         }
       );
@@ -100,7 +100,7 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
   const handleSubmit = async () => {
     // if (!validateForm()) return;
     // setLoading(true);
-    console.log("Ok button clicked: formData:", formData);
+    // console.log("Ok button clicked: formData:", formData);
     const formPayload = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       if (value !== null) {
@@ -110,10 +110,10 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
       }
     });
     formPayload.append("user_ids", JSON.stringify(selectedUsers)); // Add selected users to the payload
-    console.log("Form Payload:", formPayload);
+    // console.log("Form Payload:", formPayload);
     apiPost(UrlAdminAddOrEditMessage, formPayload)
       .then((res: any) => {
-        console.log("Response from server:", res);
+        // console.log("Response from server:", res);
         if (res.status === "success") {
           Toast(res.message, "success");
           setModalShow(false);
@@ -135,7 +135,7 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
   const handleFormat = (format: 'bold' | 'underline') => {
     // Implement the formatting logic here
     document.execCommand(format, false, "");
-    console.log(`Apply ${format} formatting`);
+    // console.log(`Apply ${format} formatting`);
   };
 
   return (
