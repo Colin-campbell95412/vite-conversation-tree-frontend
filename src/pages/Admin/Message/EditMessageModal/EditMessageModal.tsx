@@ -5,8 +5,10 @@ import { Checkbox, Col, Modal, Row } from "antd";
 import { apiPost, apiGet } from "ajax/apiServices";
 import Toast from "components/Toast/Toast";
 import { UrlAdminAddOrEditMessage, UrlAdminUsers } from "ajax/apiUrls";
-import CustomTextArea from "components/CustomTextArea/CustomTextArea";
+//import CustomTextArea from "components/CustomTextArea/CustomTextArea";
 import { BoldOutlined, UnderlineOutlined } from '@ant-design/icons';
+import ReactSimpleWYSIWYG from "react-simple-wysiwyg";
+
 
 interface EditMessageModalProps {
   show: boolean;
@@ -182,15 +184,10 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
             </div>
             <div style={{ marginBottom: 0 }}>
               <div className={`column-label ${focusedField === "description" ? "active" : ""}`}>Description</div>
-              <CustomTextArea
-                focusedField={focusedField}
-                setFocusedField={setFocusedField}
-                formData={formData["description"]}
-                handleChange={handleChange}
-                errors={errors}
-                name={"description"}
-                placeholder={""}
+              <ReactSimpleWYSIWYG
                 value={formData.description}
+                onChange={e => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                style={{ minHeight: 120, maxHeight:120, marginBottom: 0 }}
               />
             </div>
           </Col>
@@ -207,7 +204,7 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
                 Select All
               </Checkbox>
             </div>
-            <div style={{ flex: 1, maxHeight: '180px', overflowY: 'auto', border: '1px solid #999', borderRadius: 4, background: '#fff', padding: '8px' }}>
+            <div style={{ flex: 1,minHeight:'120px', maxHeight: '180px', border: '1px solid #999', borderRadius: 4, background: '#fff', padding: '8px' }}>
               {userList.map((user) => (
                 <div key={user.id} style={{ marginBottom: "8px" }}>
                   <Checkbox

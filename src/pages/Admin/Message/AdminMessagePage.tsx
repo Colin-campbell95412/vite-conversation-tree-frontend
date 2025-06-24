@@ -78,15 +78,15 @@ const AdminMessagePage = ({ history }: any) => {
       dataIndex: 'description',
       render: (text: any) => {
         return (
-          <div style={{
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            maxWidth: '200px',
-          }}
-          >
-            {text}  
-          </div>
+          <div
+            style={{
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              maxWidth: '200px',
+            }}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         );
       },
     },
@@ -259,11 +259,11 @@ const AdminMessagePage = ({ history }: any) => {
         />
         <AntdModal
           open={viewModal.visible}
-          title={viewModal.title}
+          title={<div style={{ marginBottom: 16 }}>{viewModal.title}</div>}
           footer={<Button onClick={() => setViewModal({ ...viewModal, visible: false })}>Close</Button>}
           onCancel={() => setViewModal({ ...viewModal, visible: false })}
         >
-          <div style={{ whiteSpace: 'pre-wrap' }}>{viewModal.description}</div>
+          <div style={{ whiteSpace: 'pre-wrap', marginTop: 16 }} dangerouslySetInnerHTML={{ __html: viewModal.description }} />
         </AntdModal>
       </div>
     </AdminLayout>
