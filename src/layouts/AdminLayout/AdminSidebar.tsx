@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import { Link, useLocation } from "react-router-dom";
 // import Logo from 'assets/png/footer_logo.png';
 import { ProductOutlined, UserSwitchOutlined } from '@ant-design/icons';
-import { ROUTE_ADMIN_CONVERSATION, ROUTE_ADMIN_DOC, ROUTE_ADMIN_LAB, ROUTE_ADMIN_USER } from 'constants/navigation_constants';
+import { ROUTE_ADMIN_CONVERSATION, ROUTE_ADMIN_DOC, ROUTE_ADMIN_LAB, ROUTE_ADMIN_USER, ROUTE_ADMIN_MESSAGE } from 'constants/navigation_constants';
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -79,7 +79,16 @@ const AdminSidebar = () => {
             className="sidebar-link"
             onClick={() => handleClick(ROUTE_ADMIN_DOC)}
           >
-            <UserSwitchOutlined /> Doc
+            <ProductOutlined /> Doc
+          </Link>
+        </Col>
+         <Col className={`sidebar-item ${activeItem === ROUTE_ADMIN_MESSAGE ? 'active' : ''}`}>
+          <Link
+            to={ROUTE_ADMIN_MESSAGE}
+            className="sidebar-link"
+            onClick={() => handleClick(ROUTE_ADMIN_MESSAGE)}
+          >
+            <ProductOutlined /> Message
           </Link>
         </Col>
         {/* <Col className={`sidebar-item ${activeItem === ROUTE_ADMIN_PAYMENT ? 'active' : ''}`}>

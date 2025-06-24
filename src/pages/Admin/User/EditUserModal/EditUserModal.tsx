@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { confirmable } from "react-confirm";
 import CustomInput from "components/CustomInput/CustomInput";
-import { Col, Modal, Row } from "antd";
+import { Col, Modal, Row, Select } from "antd";
 import { apiPost } from "ajax/apiServices";
 import Toast from "components/Toast/Toast";
 import { UrlAdminSignup } from "ajax/apiUrls";
@@ -24,11 +24,13 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
     username: "",
     password: "",
     user_id: "",
+    role: "user",
   });
 
   interface FormErrors {
     username?: boolean;
     password?: boolean;
+    role?: boolean;
   }
 
   const [errors, setErrors] = useState<FormErrors>({
@@ -48,12 +50,14 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
           username: data.username || "",
           password: "",
           user_id: data.id || "",
+          role: "user",
         });
       } else {
         setFormData({
           username: "",
           password: "",
           user_id: "",
+          role: "user",
         });
       }
     }
@@ -67,12 +71,19 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
     e.target.value = null;
   };
 
+  const handleRoleChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, role: value }));
+    setErrors((prevErrors) => ({ ...prevErrors, role: false }));
+  };
+
   const validateForm = () => {
     let newErrors: FormErrors = {};
 
     if (!formData.username.trim()) newErrors.username = true;
 
     if (!formData.password) newErrors.password = true;
+
+    if (!formData.role) newErrors.role = true;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -126,12 +137,12 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
           username: "",
           password: "",
           user_id: "",
+          role: "user",
         });
         setErrors({
           username: false,
           password: false,
         });
-
         setModalShow(false);
       }}
     >
@@ -181,6 +192,32 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
             />
           </Col>
         </Row>
+        {method === "signup" && (
+          <Row gutter={24}>
+            <Col md={24}>
+              <div
+                className={`column-label ${
+                  focusedField === "role" ? "active" : ""
+                }`}
+              >
+                Role
+              </div>
+              <Select
+                value={formData.role}
+                onChange={handleRoleChange}
+                style={{ width: "100%" }}
+              >
+                <Select.Option value="admin">admin</Select.Option>
+                <Select.Option value="user">user</Select.Option>
+              </Select>
+              {errors.role && (
+                <div style={{ color: "red", fontSize: 12 }}>
+                  Please select a role.
+                </div>
+              )}
+            </Col>
+          </Row>
+        )}
       </div>
     </Modal>
   );

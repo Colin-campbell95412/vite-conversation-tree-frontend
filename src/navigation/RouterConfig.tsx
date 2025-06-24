@@ -9,13 +9,16 @@ import {
   ROUTE_ADMIN_EDIT_CONVERSATION,
   ROUTE_ADMIN_DOC,
   ROUTE_ADMIN_LAB,
+  ROUTE_ADMIN_MESSAGE,
 }
   from "constants/navigation_constants";
+
 import AdminUserPage from "pages/Admin/User/AdminUserPage";
 import AdminConversationPage from "pages/Admin/Conversation/AdminConversationPage";
 import EditConversationPage from "pages/Admin/Conversation/EditConversationPage";
 import AdminLabPage from "pages/Admin/Lab/AdminLabPage";  
 import AdminDocPage from "pages/Admin/Doc/AdminDocPage";
+import AdminMessagePage from "pages/Admin/Message/AdminMessagePage";
 
 export const RouterConfig = () => {
   return (
@@ -26,6 +29,7 @@ export const RouterConfig = () => {
       <Route path={ROUTE_ADMIN_EDIT_CONVERSATION} element={<EditConversationPage />} />
       <Route path={ROUTE_ADMIN_DOC} element={<AdminDocPage />} />
       <Route path={ROUTE_ADMIN_LAB} element={<AdminLabPage />} />
+      <Route path={ROUTE_ADMIN_MESSAGE} element={<AdminMessagePage />} />
       
     </Routes>
   );

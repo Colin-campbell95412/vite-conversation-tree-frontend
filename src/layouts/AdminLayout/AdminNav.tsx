@@ -5,7 +5,7 @@ import ImgAvatar from 'assets/png/avatar.png';
 import Toast from 'components/Toast/Toast';
 
 import './AdminLayout.css';
-import { ROUTE_ADMIN, ROUTE_ADMIN_CONVERSATION, ROUTE_ADMIN_DOC, ROUTE_ADMIN_EDIT_CONVERSATION, ROUTE_ADMIN_LAB, ROUTE_ADMIN_USER } from 'constants/navigation_constants';
+import { ROUTE_ADMIN, ROUTE_ADMIN_CONVERSATION, ROUTE_ADMIN_DOC, ROUTE_ADMIN_EDIT_CONVERSATION, ROUTE_ADMIN_LAB, ROUTE_ADMIN_USER, ROUTE_ADMIN_MESSAGE } from 'constants/navigation_constants';
 import { useLocation } from "react-router-dom";
 import { apiPost } from 'ajax/apiServices';
 import { UrlAdminUpdateProfile } from 'ajax/apiUrls';
@@ -113,6 +113,8 @@ const AppHeader: React.FC = () => {
       tmpTitle = "Doc"
     } else if (path == ROUTE_ADMIN_LAB) {
       tmpTitle = "Lab"
+    } else if (path == ROUTE_ADMIN_MESSAGE) {
+      tmpTitle = "Message"
     } else if (path == ROUTE_ADMIN_CONVERSATION) {
       tmpTitle = "Conversation"
     } else if (path == ROUTE_ADMIN_EDIT_CONVERSATION) {

@@ -44,6 +44,8 @@ function AdminLoginPage() {
       .then((res: any) => {
         setLoading(false);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("currentUserId", res.data.user_info.id);
+        localStorage.setItem("currentUserRole", res.data.role);
         dispatch(setAdminInfo(res.data.user_info));
         window.location.href = ROUTE_ADMIN_CONVERSATION;
       })
@@ -56,7 +58,7 @@ function AdminLoginPage() {
   const onSignup = async () => {
     let dlgRes = await showEditUserModal({
       data: {},
-      method: "add",
+      method: "signup",
       show: true,
     })
 
@@ -115,7 +117,7 @@ function AdminLoginPage() {
               </Button>
             </Form.Item>
             <Form.Item style={{ marginTop: "-10px" }}>
-              {/* <Button
+              <Button
                 loading={loading}
                 type="primary"
                 className="login-form-button"
@@ -124,7 +126,7 @@ function AdminLoginPage() {
                 }
               >
                 Sign up
-              </Button> */}
+              </Button>
             </Form.Item>
           </Form>
         </Col>
