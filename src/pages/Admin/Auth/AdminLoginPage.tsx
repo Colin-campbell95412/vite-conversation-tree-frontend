@@ -45,7 +45,7 @@ function AdminLoginPage() {
         setLoading(false);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("currentUserId", res.data.user_info.id);
-        localStorage.setItem("currentUserRole", res.data.role);
+        localStorage.setItem("currentUserRole", "admin");
         dispatch(setAdminInfo(res.data.user_info));
         window.location.href = ROUTE_ADMIN_CONVERSATION;
       })

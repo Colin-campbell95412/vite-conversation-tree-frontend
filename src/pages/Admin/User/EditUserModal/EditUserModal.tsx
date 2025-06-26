@@ -50,14 +50,14 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
           username: data.username || "",
           password: "",
           user_id: data.id || "",
-          role: "user",
+          role: "admin",
         });
       } else {
         setFormData({
           username: "",
           password: "",
           user_id: "",
-          role: "user",
+          role: "admin",
         });
       }
     }

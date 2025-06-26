@@ -134,7 +134,7 @@ const AdminLabPage = ({ history }: any) => {
         setFilteredData(updatedData);
         setSelectedRowKeys([]);
 
-        Toast('Selected contacts deleted successfully!', "success");
+        Toast('Selected labs deleted successfully!', "success");
       })
       .catch((err) => {
         Toast(err, "error");
@@ -206,7 +206,7 @@ const AdminLabPage = ({ history }: any) => {
               icon={<DeleteOutlined />}
               style={{ marginRight: '16px', marginTop: '10px', height: '33px' }}
             >
-              Delete {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'Contacts' : 'Contact'}
+              Delete {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'Labs' : 'Lab'}
             </Button>
           )}
           <Input
