@@ -56,7 +56,9 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
         .then((res: any) => {
           // console.log("Current User ID:", currentUserId);
           // if (res.status === "success") {
-          setUserList(Array.isArray(res) ? res.filter((user: any) => user.id !== currentUserId) : []);        
+          // setUserList(Array.isArray(res) ? res.filter((user: any) => user.id !== currentUserId) : []);        
+          setUserList(Array.isArray(res) ? [] : []);        
+
           // console.log("Filtered User List:", userList);
           // }
         }
@@ -192,19 +194,23 @@ const EditMessageModal: React.FC<EditMessageModalProps> = ({
             </div>
           </Col>
           <Col md={6} style={{ display: "flex", flexDirection: "column", background: "#f7f7f7", borderRadius: 8, padding: 12 }}>
-            <div style={{ marginBottom: 8, fontWeight: 600, fontSize: 16 }}>User List</div>
+            {/* <div style={{ marginBottom: 8, fontWeight: 600, fontSize: 16 }}>User List</div> */}
             <div style={{ marginBottom: 3 }}>
               <Checkbox
-                indeterminate={selectedUsers.length > 0 && selectedUsers.length < userList.length}
-                checked={selectedUsers.length === userList.length}
+                indeterminate={userList.length > 0 && selectedUsers.length > 0 && selectedUsers.length < userList.length}
+                checked={
+                  userList.length === 0 // If no users, checkbox is checked
+                    ? true
+                    : selectedUsers.length === userList.length
+                }
                 onChange={(e) => {
                   setSelectedUsers(e.target.checked ? userList.map(user => user.id) : []);
                 }}
               >
-                Select All
+                All users
               </Checkbox>
             </div>
-            <div style={{ flex: 1,minHeight:'120px', maxHeight: '180px', border: '1px solid #999', borderRadius: 4, background: '#fff', padding: '8px' }}>
+            <div style={{ flex: 1,minHeight:'120px', maxHeight: '180px', border: '1px solid #ccf', borderRadius: 4, background: '#fff', padding: '8px' }}>
               {userList.map((user) => (
                 <div key={user.id} style={{ marginBottom: "8px" }}>
                   <Checkbox

@@ -77,6 +77,8 @@ const AdminMessagePage = ({ history }: any) => {
       title: 'Description',
       dataIndex: 'description',
       render: (text: any) => {
+        // Strip HTML tags to show plain text only
+        const plainText = text.replace(/<[^>]+>/g, '');
         return (
           <div
             style={{
@@ -85,8 +87,9 @@ const AdminMessagePage = ({ history }: any) => {
               textOverflow: 'ellipsis',
               maxWidth: '200px',
             }}
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
+          >
+            {plainText}
+          </div>
         );
       },
     },
@@ -152,7 +155,7 @@ const AdminMessagePage = ({ history }: any) => {
         setFilteredData(updatedData);
         setSelectedRowKeys([]);
 
-        Toast('Selected contacts deleted successfully!', "success");
+        Toast('Selected messages deleted successfully!', "success");
       })
       .catch((err) => {
         Toast(err, "error");
@@ -224,7 +227,7 @@ const AdminMessagePage = ({ history }: any) => {
               icon={<DeleteOutlined />}
               style={{ marginRight: '16px', marginTop: '10px', height: '33px' }}
             >
-              Delete {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'Contacts' : 'Contact'}
+              Delete {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'Messages' : 'Message'}
             </Button>
           )}
           <Input
@@ -263,7 +266,10 @@ const AdminMessagePage = ({ history }: any) => {
           footer={<Button onClick={() => setViewModal({ ...viewModal, visible: false })}>Close</Button>}
           onCancel={() => setViewModal({ ...viewModal, visible: false })}
         >
-          <div style={{ whiteSpace: 'pre-wrap', marginTop: 16 }} dangerouslySetInnerHTML={{ __html: viewModal.description }} />
+          {/* Show plain text in modal as well */}
+          <div style={{ whiteSpace: 'pre-wrap', marginTop: 16 }}>
+            {viewModal.description.replace(/<[^>]+>/g, '')}
+          </div>
         </AntdModal>
       </div>
     </AdminLayout>
