@@ -1,0 +1,16 @@
+.admin-contact {
+    overflow-x: auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    overflow-y: hidden;
+}
+
+.admin-contact table {
+    width: 100%
+}
+
+.admin-contact {
+    overflow-x: auto;
+    /* Ensures that the table container itself is scrollable */
+    padding-bottom: 10px;
+}
